@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Transaction Value Checker</title>
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <!-- Video Background -->
+    <div class="video-background">
+        <!-- Using a YouTube video of abstract financial data visualization -->
+        <iframe src="https://www.youtube.com/embed/q_k8fVNzbJQ?controls=0&autoplay=1&mute=1&playsinline=1&loop=1&playlist=q_k8fVNzbJQ" 
+                frameborder="0" 
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                allowfullscreen
+                title="Financial Background Video"></iframe>
+    </div>
+
+    <!-- Main Content -->
+    <div class="main-container">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-12">
+                    <div class="transaction-card">
+                        <div class="logo-container">
+                            <h1 class="logo"><i class="fas fa-shield-alt"></i> SecureCheck</h1>
+                            <p class="tagline">Transaction Value Verification System</p>
+                        </div>
+                        
+                        <div class="form-floating mb-3">
+                            <input type="number" class="form-control" id="amount" placeholder="Enter amount" step="0.01">
+                            <label for="amount"><i class="fas fa-dollar-sign"></i> Transaction Amount</label>
+                        </div>
+                        
+                        <button id="checkButton" class="btn btn-check-transaction">
+                            <i class="fas fa-search-dollar"></i> Verify Transaction
+                        </button>
+                        
+                        <div id="resultContainer" class="result-container">
+                            <div id="resultMessage" class="result-message"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="footer">
+            <p>© 2023 SecureCheck Financial Verification System</p>
+        </div>
+    </div>
+
+    <!-- Bootstrap JS Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Custom JavaScript -->
+    <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+</body>
+</html>
