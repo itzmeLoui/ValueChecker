@@ -1,0 +1,227 @@
+/* Global Styles */
+:root {
+    --primary-color: #1a73e8;
+    --success-color: #28a745;
+    --warning-color: #ffc107;
+    --danger-color: #dc3545;
+    --dark-color: #343a40;
+    --light-color: #f8f9fa;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    overflow: hidden;
+    color: var(--light-color);
+}
+
+/* Video Background */
+.video-background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    overflow: hidden;
+}
+
+.video-background::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 10, 30, 0.75); /* Dark blue overlay */
+}
+
+.video-background iframe {
+    width: 100vw;
+    height: 100vh;
+    min-width: 177.77vh; /* 16:9 aspect ratio */
+    min-height: 56.25vw; /* 16:9 aspect ratio */
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+/* Main Content */
+.main-container {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1;
+    position: relative;
+}
+
+.transaction-card {
+    background-color: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    border-radius: 15px;
+    padding: 30px;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+    width: 95%;
+    max-width: 500px;
+    transition: all 0.3s ease;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.transaction-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+}
+
+.logo-container {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.logo {
+    font-size: 2.5rem;
+    color: var(--light-color);
+    margin-bottom: 0;
+}
+
+.tagline {
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 1rem;
+}
+
+.form-floating > .form-control {
+    height: calc(3.5rem + 2px);
+    padding: 1rem 0.75rem;
+    background-color: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    color: white;
+}
+
+.form-floating > .form-control:focus {
+    background-color: rgba(255, 255, 255, 0.15);
+    box-shadow: 0 0 0 0.25rem rgba(26, 115, 232, 0.25);
+    border-color: rgba(26, 115, 232, 0.5);
+}
+
+.form-floating > label {
+    padding: 1rem 0.75rem;
+    color: rgba(255, 255, 255, 0.7);
+}
+
+.form-floating > .form-control:focus ~ label,
+.form-floating > .form-control:not(:placeholder-shown) ~ label {
+    color: rgba(255, 255, 255, 0.9);
+    transform: scale(0.85) translateY(-0.5rem) translateX(0.15rem);
+}
+
+.btn-check-transaction {
+    background-color: var(--primary-color);
+    color: white;
+    border: none;
+    padding: 12px 25px;
+    border-radius: 50px;
+    font-weight: 500;
+    letter-spacing: 0.5px;
+    box-shadow: 0 4px 15px rgba(26, 115, 232, 0.35);
+    transition: all 0.3s ease;
+    width: 100%;
+    margin-top: 10px;
+}
+
+.btn-check-transaction:hover {
+    background-color: #0d62d1;
+    box-shadow: 0 6px 20px rgba(26, 115, 232, 0.5);
+    transform: translateY(-2px);
+}
+
+/* Result Styles */
+.result-container {
+    margin-top: 25px;
+    position: relative;
+    height: 65px;
+    overflow: hidden;
+}
+
+.result-message {
+    padding: 15px;
+    border-radius: 10px;
+    font-weight: 500;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: all 0.4s ease;
+    position: absolute;
+    width: 100%;
+    text-align: center;
+}
+
+.result-message.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.result-success {
+    background-color: rgba(40, 167, 69, 0.2);
+    border: 1px solid rgba(40, 167, 69, 0.3);
+    color: #8affac;
+}
+
+.result-warning {
+    background-color: rgba(255, 193, 7, 0.2);
+    border: 1px solid rgba(255, 193, 7, 0.3);
+    color: #ffe169;
+}
+
+.result-danger {
+    background-color: rgba(220, 53, 69, 0.2);
+    border: 1px solid rgba(220, 53, 69, 0.3);
+    color: #ff8a93;
+}
+
+.result-message i {
+    margin-right: 8px;
+}
+
+/* Footer */
+.footer {
+    position: absolute;
+    bottom: 10px;
+    width: 100%;
+    text-align: center;
+    color: rgba(255, 255, 255, 0.5);
+    font-size: 0.85rem;
+}
+
+/* Animations */
+@keyframes pulse {
+    0% {
+        box-shadow: 0 0 0 0 rgba(26, 115, 232, 0.7);
+    }
+    70% {
+        box-shadow: 0 0 0 10px rgba(26, 115, 232, 0);
+    }
+    100% {
+        box-shadow: 0 0 0 0 rgba(26, 115, 232, 0);
+    }
+}
+
+.pulse {
+    animation: pulse 1.5s infinite;
+}
+
+/* Responsive */
+@media (max-width: 576px) {
+    .transaction-card {
+        padding: 20px;
+    }
+    
+    .logo {
+        font-size: 2rem;
+    }
+    
+    .tagline {
+        font-size: 0.9rem;
+    }
+}
