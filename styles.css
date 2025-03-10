@@ -39,7 +39,7 @@ body {
 }
 
 .video-background iframe {
-    width: 100vw;
+    width: 1000vw;
     height: 100vh;
     min-width: 177.77vh; /* 16:9 aspect ratio */
     min-height: 56.25vw; /* 16:9 aspect ratio */
